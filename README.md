@@ -16,7 +16,6 @@ mv obsidian_trainer.py /home/User/Documents/yourvault/
 - Configure your Obsidian Graph View Force Filters so that the mindmap is discernible
 	- Set Center Force, Repel Force, and Link Force to 1.0
 	- Set Link Distance to 30
-- 
  
 ---
 ## Selecting Bubble Tree to Train With
