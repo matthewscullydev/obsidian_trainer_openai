@@ -3,10 +3,15 @@ import os
 import time
 from openai import OpenAI
 client = OpenAI()
-# Example usage:
-file_path = '/home/matt/Documents/obsidian_bubble_vault/bubble_trainer/your_file.md'
-directory_path = '/home/matt/Documents/obsidian_bubble_vault/bubble_trainer/'
-save_path = '/home/matt/Documents/obsidian_bubble_vault/Flashcards'
+
+# This file_path should remain unmodified
+file_path = '/home/User/Documents/obsidian_bubble_vault/bubble_trainer/your_file.md'
+
+# This directory_path variable should be replaced with your vault directory path
+directory_path = '/home/User/Documents/obsidian_bubble_vault/bubble_trainer/'
+
+# This saved directory should be created by and defined by you if you would like to save flashcards
+save_path = '/home/User/Documents/obsidian_bubble_vault/Flashcards'
 
 def save_mindmap():
     userdir = input("Save mindmap as?\n")
