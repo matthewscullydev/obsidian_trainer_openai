@@ -29,13 +29,13 @@ def delete_mindmap():
     except Exception as e:
         print(f"Error: {e}")
 
-def free_mode():
+def training_mode():
     global file_path
 
     def parse_markdown(file_path):
 
         if(file_path ==  '/home/matt/Documents/obsidian_bubble_vault/bubble_trainer/your_file.md'):
-            print("Use option 3 to select a root node.")
+            print("Use option 2 to select a root node.")
             return
 
         # Define a dictionary to store replaced text
@@ -107,7 +107,7 @@ def free_mode():
                 new_file_path = os.path.join(parent_directory_path, '?' * (index + 1) + '.md')
                 os.rename(new_file_path, restored_filename)
             else:
-                    skipped_index = skipped_indices.pop(index) if skipped_indices else None
+                    skipped_index = skipped_indices[0] if skipped_indices else None
                     chosen_topic = references[skipped_index]
 
                     user_message = f"tell me about {chosen_topic} without explicitly saying it by name"
@@ -121,7 +121,16 @@ def free_mode():
                     )
 
                     response_message = response.choices[0].message.content
-                    print(response_message )
+                    chosen_topicUpperC = chosen_topic[0].upper() + chosen_topic[1:]
+
+                    if chosen_topic in response_message:
+                        # Replace chosen_topic with question marks using regular expressions
+                        response_message = re.sub(chosen_topic, '?' * len(chosen_topic), response_message)
+                    if chosen_topicUpperC in response_message:
+                            # Replace chosen_topic with question marks using regular expressions
+                        response_message = re.sub(chosen_topicUpperC, '?' * len(chosen_topic),response_message)
+
+                    print(response_message)
 
         for skipped_index in skipped_indices:
             user_input = references[skipped_index].lower()
@@ -245,7 +254,7 @@ def exit_program():
 
 # Define a dictionary mapping choices to functions
 menu_options = {
-    "1": free_mode,
+    "1": training_mode,
     "2": select_root_node,
     "3": generate_mindmap,
     "4": delete_mindmap,
