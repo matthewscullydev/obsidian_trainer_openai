@@ -6,15 +6,18 @@ This is a tool for generating mindmaps and practicing retention within obsidian.
 * Create a new Obsidian vault
 	* This is for the safety of your other .md files within the directory you will place this script.
 	* It becomes harder to visualize your mindmaps with larger vaults so small vault sizes will be the most optimal
+   
+* Swap the default directory path variable in the python program with the directory path you set your vault to be upon creation of a new vault in obsidian
 
-- Place mindmap_generator.py in your obsidian vault directory
+- Place obsidian_trainer.py in your obsidian vault directory
 ```bash
-mv mindmap_generator.py /home/User/Documents/yourvault/
+mv obsidian_trainer.py /home/User/Documents/yourvault/
 ```
+
 - Configure your Obsidian Graph View Force Filters so that the mindmap is discernible
 	- Set Center Force, Repel Force, and Link Force to 1.0
 	- Set Link Distance to 30
-
+ 
 ---
 ## Selecting Bubble Tree to Train With
 ---
@@ -43,3 +46,4 @@ use a copy command with a wildcard to copy all markdown files into your vault
 cd Flashcards/
 cp History/*.md /your_vault/
 ```
+
